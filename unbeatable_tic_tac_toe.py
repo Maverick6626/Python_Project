@@ -69,15 +69,14 @@ def make_move(index):
 
 def ai_move():
     index = best_move(board)
-    if index is not None:
-        buttons[index].config(text="O", state="disabled")
-        board[index] = "O"
-        if terminal(board, "O"):
-            messagebox.showinfo("Tic Tac Toe", "Player O wins!")
-            end_game()
-        elif check_draw(board):
-            messagebox.showinfo("Tic Tac Toe", "It's a draw!")
-            end_game()
+    buttons[index].config(text="O", state="disabled")
+    board[index] = "O"
+    if terminal(board, "O"):
+        messagebox.showinfo("Tic Tac Toe", "Player O wins!")
+        end_game()
+    elif check_draw(board):
+        messagebox.showinfo("Tic Tac Toe", "It's a draw!")
+        end_game()
 
 def reset_board():
     global board, game_over
