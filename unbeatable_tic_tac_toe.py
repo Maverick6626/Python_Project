@@ -54,15 +54,15 @@ def best_move(board):
 
 def make_move(index):
     if board[index] == " " and not game_over:
-        buttons[index].config(text="X", font=('normal',20,'bold'), state="disabled")
+        buttons[index].config(text="X", state="disabled")
         board[index] = "X"
         if terminal(board, "X"):
             win = [(0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8),(0, 4, 8), (2, 4, 6)] #combinations to win
             for combo in win:
                 if board[combo[0]] == board[combo[1]] == board[combo[2]] == "X":
-                    buttons[combo[0]].config(bg="lime")
-                    buttons[combo[1]].config(bg="lime")
-                    buttons[combo[2]].config(bg="lime")
+                    buttons[combo[0]].config(bg="lightblue")
+                    buttons[combo[1]].config(bg="lightblue")
+                    buttons[combo[2]].config(bg="lightblue")
             messagebox.showinfo("Tic Tac Toe", "Player X wins!")
             end_game()
 
@@ -76,15 +76,15 @@ def make_move(index):
 def ai_move():
     index = best_move(board)
     if index is not None:
-        buttons[index].config(text="O", font=('normal',20,'bold'), state="disabled")
+        buttons[index].config(text="O", state="disabled")
         board[index] = "O"
         if terminal(board, "O"):
             win = [(0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8),(0, 4, 8), (2, 4, 6)] #combinations to win
             for combo in win:
                 if board[combo[0]] == board[combo[1]] == board[combo[2]] == "O":
-                    buttons[combo[0]].config(bg="lime")
-                    buttons[combo[1]].config(bg="lime")
-                    buttons[combo[2]].config(bg="lime")
+                    buttons[combo[0]].config(bg="lightblue")
+                    buttons[combo[1]].config(bg="lightblue")
+                    buttons[combo[2]].config(bg="lightblue")
             messagebox.showinfo("Tic Tac Toe", "Player O wins!")
             end_game()
         elif check_draw(board):
@@ -111,7 +111,7 @@ board = [" " for i in range(9)]
 game_over = False
 
 for i in range(9):
-    button = tk.Button(window, text=" ", font=('normal', 20,'bold'), height=2, width=5, command= lambda x=i: make_move(x))
+    button = tk.Button(window, text=" ", font=('normal', 20), height=2, width=5, command= lambda x=i: make_move(x))
     buttons.append(button)
     row = i // 3
     col = i % 3
