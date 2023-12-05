@@ -102,27 +102,28 @@ def end_game():
     global game_over
     game_over = True
 
-# Create the GUI
-window = tk.Tk()
-window.title("Tic Tac Toe")
+if __name__=='__main__':
+    # Create the GUI
+    window = tk.Tk()
+    window.title("Tic Tac Toe")
 
-buttons = []
-board = [" " for i in range(9)]
-game_over = False
+    buttons = []
+    board = [" " for i in range(9)]
+    game_over = False
 
-for i in range(9):
-    button = tk.Button(window, text=" ", font=('normal', 20), height=2, width=5, command= lambda x=i: make_move(x))
-    buttons.append(button)
-    row = i // 3
-    col = i % 3
-    button.grid(row=row, column=col)
+    for i in range(9):
+        button = tk.Button(window, text=" ", font=('normal', 20), height=2, width=5, command= lambda x=i: make_move(x))
+        buttons.append(button)
+        row = i // 3
+        col = i % 3
+        button.grid(row=row, column=col)
 
-# Add Reset Button
-reset_button = tk.Button(window, text="Reset", command=reset_board)
-reset_button.grid(row=3, column=0, columnspan=3, sticky="we")
+    # Add Reset Button
+    reset_button = tk.Button(window, text="Reset", command=reset_board)
+    reset_button.grid(row=3, column=0, columnspan=3, sticky="we")
 
-# Add Exit Button
-exit_button = tk.Button(window, text="Exit", command=window.destroy)
-exit_button.grid(row=4, column=0, columnspan=3, sticky="we")
+    # Add Exit Button
+    exit_button = tk.Button(window, text="Exit", command=window.destroy)
+    exit_button.grid(row=4, column=0, columnspan=3, sticky="we")
 
-window.mainloop()
+    window.mainloop()
